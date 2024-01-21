@@ -74,7 +74,7 @@ class ExcelManager:
 
     def _save_file(self):
         self._set_new_cells_format(MandatoryColumns.Date, 'yyyy-mm-dd;@')
-        self._set_new_cells_format(MandatoryColumns.Rate, '0.00')
+        self._set_new_cells_format(MandatoryColumns.Rate, '0.00000')
         self.wb.save(self.file_name)
         self.max_row = self.ws.max_row
 
