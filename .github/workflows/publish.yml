@@ -23,5 +23,5 @@ jobs:
           python -m PyInstaller .\AutoupdateRates.exe.spec
       - uses: actions/upload-artifact@v2
         with:
-          name: TEST
-          path: dist/text.exe
+          name: Upload generated EXE
+          path: dist/AutoupdateRates.exe
