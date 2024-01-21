@@ -25,13 +25,10 @@ jobs:
         with:
           name: Upload generated EXE
           path: dist/AutoupdateRates.exe
-      - name: create release
-        id: create_release
-        uses: actions/create-release@v1
+      - name: Create Release
+        uses: ncipollo/release-action@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.event.head_commit.message }}
-          release_name: ${{ github.event.head_commit.message }}
-          body: |
-            Test Release v1.0.0
+          artifacts: "dist/AutoupdateRates.exe"
+          bodyFile: "README.md"
