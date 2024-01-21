@@ -20,7 +20,7 @@ jobs:
           pip install -r requirements.txt
       - name: Run PyInstaller
         run: |
-          python -m pyinstaller .\AutoupdateRates.exe.spec
+          python -m PyInstaller .\AutoupdateRates.exe.spec
       - uses: actions/upload-artifact@v2
         with:
           name: TEST
