@@ -34,4 +34,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{  github.ref_name }}
         run: |
-          gh release create "${{  github.ref_name }}" --repo="$GITHUB_REPOSITORY" --title="${GITHUB_REPOSITORY#*/}" --generate-notes
+          gh release create "${{  github.ref_name }}" dist/AutoupdateRates.exe --repo="$GITHUB_REPOSITORY" --title="${GITHUB_REPOSITORY#*/}" --generate-notes
