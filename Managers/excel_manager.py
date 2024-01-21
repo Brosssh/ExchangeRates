@@ -16,7 +16,7 @@ from Managers.utility import try_parse_float
 class ExcelManager:
     wb: openpyxl.workbook.workbook.Workbook
     ws :openpyxl.worksheet.worksheet.Worksheet
-    file_name :str
+    file_path :str
     content_start :int
     col_names = {}
 
@@ -36,7 +36,7 @@ class ExcelManager:
     def __init__(self, file_path :str) -> None:
         self.wb = load_workbook(filename=file_path)
         self.ws = self.wb.active
-        self.file_name = file_path.split("\\")[-1]
+        self.file_path = file_path
         self.max_row = self.ws.max_row
         self.col_names = self._build_col_names()
         self._validate_columns()
@@ -75,7 +75,7 @@ class ExcelManager:
     def _save_file(self):
         self._set_new_cells_format(MandatoryColumns.Date, 'yyyy-mm-dd;@')
         self._set_new_cells_format(MandatoryColumns.Rate, '0.00000')
-        self.wb.save(self.file_name)
+        self.wb.save(self.file_path)
         self.max_row = self.ws.max_row
 
 def is_valid_excel_file(file_path :str) -> bool:
