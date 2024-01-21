@@ -6,6 +6,7 @@ from Classes.daily_rate import DailyRates
 from Managers.excel_manager import ExcelManager
 from Managers.file_manager import get_valid_path
 
+
 try:
     excel_file_path = get_valid_path()
     excel = ExcelManager(excel_file_path)
