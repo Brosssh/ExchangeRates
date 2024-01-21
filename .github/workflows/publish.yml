@@ -4,14 +4,17 @@ on:
   push:
     branches: main
 
+permissions:
+  contents: write
+
 jobs:
   build-windows:
     runs-on: windows-2019
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v4
       - name: Install Python
-        uses: actions/setup-python@v1
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11'
           architecture: 'x64'
@@ -25,10 +28,12 @@ jobs:
         with:
           name: Upload generated EXE
           path: dist/AutoupdateRates.exe
-      - name: Create Release
-        uses: ncipollo/release-action@v1
+      - name: Create release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          artifacts: "dist/AutoupdateRates.exe"
-          bodyFile: "README.md"
+          tag: ${{ github.ref_name }}
+        run: |
+          gh release create "$tag" \
+              --repo="$GITHUB_REPOSITORY" \
+              --title="${GITHUB_REPOSITORY#*/} ${tag#v}" \
+              --generate-notes
