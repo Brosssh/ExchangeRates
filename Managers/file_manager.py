@@ -4,7 +4,7 @@ import easygui
 from Managers import excel_manager
 
 my_path: str = os.getenv('APPDATA') + "\\Brosssh\\Rates"
-file_path_file: str = "file_path.txt"
+file_path_file: str = "file_path"
 complete_path = os.path.join(my_path, file_path_file)
 
 
