@@ -24,6 +24,7 @@ After choosing a valid file, the exchange rates will start to get automatically 
 
 ## General notes
 - Saturday and Sunday never have rates. The Banca d'Italia site do not provide them.
+- The sheet where you want to load the rates into should be the first sheet of the Excel file.
 - The process can be terminated in any time with the key combination CTRL + C.
 - If you want to modify the Excel file, make sure the Date columns is of type Date in Excel.
 - If you want to select another Excel file, make sure the process do not find the old file (rename it, move it to another location). You will get asked again to choose the destionation Excel.
