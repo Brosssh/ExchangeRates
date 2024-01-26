@@ -35,7 +35,7 @@ class ExcelManager:
 
     def __init__(self, file_path :str) -> None:
         self.wb = load_workbook(filename=file_path)
-        self.ws = self.wb.active
+        self.ws = self.wb.worksheets[0]
         self.file_path = file_path
         self.max_row = self.ws.max_row
         self.col_names = self._build_col_names()

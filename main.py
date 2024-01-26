@@ -18,7 +18,7 @@ try:
         time.sleep(.5)
 
 except MissingColumn as e:
-    print(f"ERROR: No column named {e.column_name} was found!")
+    print(f"ERROR: No column named {e.column_name} was found! Make sure that the first sheet of the Excel file contain this column.")
 except PermissionError:
     print(f"ERROR: Permission error! Make sure the Excel file is not being modified by another user.")
 except Exception as e:
